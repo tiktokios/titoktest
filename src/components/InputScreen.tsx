@@ -205,18 +205,21 @@ function InputScreen({ }: Props) {
                     </div>
 
                     <div>
-                        <video controls src={data()!.result.video1 ?? data()!.result.videoHD ?? data()!.result.videoWatermark ?? data()!.result.video_diyoun ?? ""} class=" rounded-md shadow-md my-3 w-3/4 mx-auto"></video>
+                        <video controls src={data()!.result.video ?? data()!.result.video1 ?? data()!.result.videoHD ?? data()!.result.video2 ?? data()!.result.videoWatermark ?? data()!.result.music ?? data()!.result.cover ?? data()!.result.dynamic_cover ?? data()!.result.images ?? data()!.result.video_diyoun ?? ""} class=" rounded-md shadow-md my-3 w-3/4 mx-auto"></video>
                         <p class='text-center text-lg font-semibold mx-auto'>{data()!.result.desc}</p>
 
                     </div>
                     <div class='flex flex-col justify-center gap-2 mt-2 rounded-md shadow-md my-3 w-11/12 mx-auto'>
+                        {data()!.result.video && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.video ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video Low Without Watermaker</a>}
                         {data()!.result.video1 && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.video1 ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video Low Without Watermaker</a>}
+                        {data()!.result.video2 && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.video2 ?? "")}&type=.mp3&title=${data()!.result.author?.nickname ?? ""}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video Only</a>}
                         {data()!.result.videoHD && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoHD ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video HD Without Watermaker</a>}
                         {data()!.result.videoWatermark && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoWatermark ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video With Watermark</a>}
                         {data()!.result.music && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.music ?? "")}&type=.mp3&title=${data()!.result.author?.nickname ?? ""}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Audio Only</a>}
+                        {data()!.result.cover && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.cover ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Diyoun Video HD Without Watermaker</a>}
+                        {data()!.result.dynamic_cover && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.dynamic_cover ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Diyoun Video HD Without Watermaker</a>}
+                        {data()!.result.images && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.images ?? "")}&type=.mp3&title=${data()!.result.author?.nickname ?? ""}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Audio Only</a>}
                         {data()!.result.video_diyoun && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.video_diyoun ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Diyoun Video HD Without Watermaker</a>}
-
-
                     </div>
 
 
