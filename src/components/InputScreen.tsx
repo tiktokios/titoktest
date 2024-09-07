@@ -22,12 +22,28 @@ import { toast, Toaster } from 'solid-toast';
 import { createSignal } from "solid-js";
 type Props = {}
 interface TikTokData {
-    status: string | null;
-    result: {
-        type: string | null;
+  status: "success" | "error"
+    message?: string | null;
+    result?: {
+    type: "video" | "image"
+    id: string | null;
+    createTime: number | null;
+    description: string | null;
         author: {
             avatar: string | null;
+            username: string | null;
             nickname: string | null;
+            signature: string | null;
+             birthday: string | null;
+            region: string | null;
+        };
+          statistics: {
+              playCount: number | null;
+              downloadCount: number | null;
+              shareCount: number | null;
+              commentCount: number | null;
+              likeCount: number | null;
+              favoriteCount: number | null;
         };
         desc?: string | null;
         music?: string | null;
@@ -35,8 +51,16 @@ interface TikTokData {
         video2?: string | null;
         videoHD?: string | null;
         videoWatermark?: string | null;
+        video?: string | null;
+        cover?: string | null;
+        dynamic_cover?: string | null;
+        images?: string | null;
+        music: string | null;
     }
 }
+
+
+
 
 function InputScreen({ }: Props) {
 
